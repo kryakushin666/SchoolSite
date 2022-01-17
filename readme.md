@@ -1,4 +1,4 @@
-# Проект Блога на Spring Boot
+# Проект Блога на Java Spring Boot
 Стек
 
 * Java 8
@@ -8,6 +8,6 @@
 * Spring Boot 2.6.2
 
 
-* [VK](https://vk.com/kryakushin777)
+* [IntelliJ IDEA](https://www.jetbrains.com/ru-ru/idea/)
+* [Bootstrap](https://getbootstrap.com)
 * [Spring](https://spring.io/)
-
