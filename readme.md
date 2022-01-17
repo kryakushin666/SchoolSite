@@ -1,5 +1,5 @@
 # Проект Блога на Spring Boot
-###Стек
+Стек
 
 * Java 8
 * IntelliJ IDEA 2021.3.1 (Community Edition)
