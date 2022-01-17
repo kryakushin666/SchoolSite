@@ -9,6 +9,7 @@ public class BlogController {
 
     @GetMapping("/blog")
     public String blogMain(Model model) {
+        model.addAttribute("title", "Блог");
         return "blog-main";
     }
 }
