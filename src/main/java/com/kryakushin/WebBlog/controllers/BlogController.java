@@ -2,6 +2,7 @@ package com.kryakushin.WebBlog.controllers;
 
 import com.kryakushin.WebBlog.models.Post;
 import com.kryakushin.WebBlog.repo.PostRepository;
+import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Optional;
+
+import static sun.misc.Version.print;
 
 @Controller
 public class BlogController {
@@ -34,8 +37,9 @@ public class BlogController {
     }
 
     @PostMapping("/blog/add")
-    public String blogPostAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model) {
+    public String blogPostAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, @RequestParam("options") String options, Model model) {
         Post post = new Post(title, anons, full_text);
+        System.out.print(options);
         postRepository.save(post);
         return "redirect:/blog";
     }
