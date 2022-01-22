@@ -41,9 +41,6 @@
       }
     </style>
 
-
-    <!-- Custom styles for this template -->
-    <link href="pricing.css" rel="stylesheet">
 </head>
 <body>
 
@@ -57,17 +54,23 @@
 <div class="container py-3">
     <header th:insert="blocks/header :: header"></header>
 
-
-    <div th:each="el : ${post}" class="alert alert-info mt-2">
-        <h3 th:text="${el.title}"></h3>
-        <p th:text="${el.full_text}"></p>
-        <p th:text="${el.views}"></p>
-        <a class="btn btn-warning" th:href="'/blog/' + ${el.id} + '/edit'">Редактировать</a><br><br>
-        <form th:action="'/blog/' + ${el.id} + '/remove'" method="post">
-            <button class="btn btn-warning" type="submit">Удалить</button>
+    <div th:each="el : ${post}" class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">Изменение статьи</h1><br>
+        <form method="post">
+            <input type="text" name="title" placeholder="Введите название статьи" class="form-control" th:value="${el.title}"><br>
+            <input type="text" name="anons" placeholder="Введите анонс статьи" class="form-control" th:value="${el.anons}"><br>
+            <textarea name="full_text" placeholder="Введите полный текст статьи" class="form-control" th:text="${el.full_text}"></textarea><br>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                    <input type="radio" name="options" id="World" autocomplete="off" value="Мир" checked> Мир</label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="Russia" autocomplete="off" value="Россия"> Россия</label>
+            </div><br><br>
+            <div class="mb-1 text-muted">Перед сохранением изменений проверьте тэг!</div>
+            <button type="submit" class="btn btn-success">Изменить статью</button>
         </form>
-
     </div>
+
 
     <footer th:insert="blocks/footer :: footer"></footer>
 </div>
