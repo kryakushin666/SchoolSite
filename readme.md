@@ -1,4 +1,4 @@
-# Проект Блога на Java Spring Boot
+# Проект английского Школьного сайта на Java Spring Boot
 Стек
 
 * Java 8

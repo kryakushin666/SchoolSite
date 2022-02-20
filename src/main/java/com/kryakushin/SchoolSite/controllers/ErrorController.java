@@ -1,4 +1,4 @@
-package com.kryakushin.WebBlog.controllers;
+package com.kryakushin.SchoolSite.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

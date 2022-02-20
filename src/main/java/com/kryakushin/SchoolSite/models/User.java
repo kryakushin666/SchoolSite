@@ -1,4 +1,4 @@
-package com.kryakushin.WebBlog.models;
+package com.kryakushin.SchoolSite.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

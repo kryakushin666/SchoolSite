@@ -55,18 +55,13 @@
     <header th:insert="blocks/header :: header"></header>
 
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-        <h1 class="display-4 fw-normal">Добавление статьи</h1><br>
+        <h1 class="display-4 fw-normal">Adding article</h1><br>
         <form action="/blog/add" method="post">
-            <input type="text" name="title" placeholder="Введите название статьи" class="form-control"><br>
-            <input type="text" name="anons" placeholder="Введите анонс статьи" class="form-control"><br>
-            <textarea name="full_text" placeholder="Введите полный текст статьи" class="form-control"></textarea><br>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="World" autocomplete="off" value="Мир" checked> Мир</label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="Russia" autocomplete="off" value="Россия"> Россия</label>
-            </div><br><br>
-            <button type="submit" class="btn btn-success">Добавить статью</button>
+            <input type="text" name="title" placeholder="Enter the title of the article" class="form-control"><br>
+            <input type="text" name="anons" placeholder="Enter the announcement of the article" class="form-control"><br>
+            <textarea name="full_text" placeholder="Enter the full text of the article" class="form-control"></textarea><br>
+            <input type="text" name="url" placeholder="Enter the url for article" class="form-control"><br>
+            <button type="submit" class="btn btn-success">Add article</button>
         </form>
     </div>
 

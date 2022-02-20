@@ -1,13 +1,13 @@
-package com.kryakushin.WebBlog;
+package com.kryakushin.SchoolSite;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WebBlogApplication {
+public class SchoolSiteApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebBlogApplication.class, args);
+		SpringApplication.run(SchoolSiteApplication.class, args);
 	}
 
 }

@@ -1,7 +1,7 @@
-package com.kryakushin.WebBlog.controllers;
+package com.kryakushin.SchoolSite.controllers;
 
-import com.kryakushin.WebBlog.models.User;
-import com.kryakushin.WebBlog.repo.UserRepository;
+import com.kryakushin.SchoolSite.models.User;
+import com.kryakushin.SchoolSite.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +19,7 @@ public class RegController {
 
     @GetMapping("/reg")
     public String reg(Model model) {
-        model.addAttribute("title", "Регистрация");
+        model.addAttribute("title", "Registration");
         return "reg";
     }
 

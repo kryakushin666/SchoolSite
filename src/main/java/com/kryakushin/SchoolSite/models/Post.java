@@ -1,4 +1,4 @@
-package com.kryakushin.WebBlog.models;
+package com.kryakushin.SchoolSite.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,14 +11,14 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String title, anons, full_text, type, date;
+    private String title, anons, full_text, type, url, date;
     private int views;
 
-    public Post(String title, String anons, String full_text, String type, String date) {
+    public Post(String title, String anons, String full_text, String url, String date) {
         this.title = title;
         this.anons = anons;
         this.full_text = full_text;
-        this.type = type;
+        this.url = url;
         this.date = date;
     }
 
@@ -54,13 +54,13 @@ public class Post {
         this.full_text = full_text;
     }
 
-    public void setType(String type) { this.type = type;}
-
-    public String getType() { return type; }
-
     public void setDate(String date) { this.date = date;}
 
     public String getDate() { return date; }
+
+    public void setUrl(String url) { this.url = url;}
+
+    public String getUrl() { return url; }
 
     public int getViews() {
         return views;

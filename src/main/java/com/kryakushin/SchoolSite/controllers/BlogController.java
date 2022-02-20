@@ -1,7 +1,7 @@
-package com.kryakushin.WebBlog.controllers;
+package com.kryakushin.SchoolSite.controllers;
 
-import com.kryakushin.WebBlog.models.Post;
-import com.kryakushin.WebBlog.repo.PostRepository;
+import com.kryakushin.SchoolSite.models.Post;
+import com.kryakushin.SchoolSite.repo.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Optional;
 
 @Controller
@@ -22,15 +24,17 @@ public class BlogController {
 
     @GetMapping("/blog/add")
     public String blogAdd(Model model) {
-        model.addAttribute("title", "Добавление статьи");
+        model.addAttribute("title", "Adding article");
         return "blog-add";
     }
 
     @PostMapping("/blog/add")
-    public String blogPostAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, @RequestParam("options") String type, Model model) {
+    public String blogPostAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, @RequestParam("url") String url, Model model) {
         Date current = new Date();
-        String str = String.format("%s %te %<tB","", current);
-        Post post = new Post(title, anons, full_text, type, str);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM", Locale.ENGLISH);
+        Post post = null;
+        if(url.isEmpty()) post = new Post(title, anons, full_text, null, sdf.format(current));
+        else post = new Post(title, anons, full_text, url, sdf.format(current));
         postRepository.save(post);
         return "redirect:/";
     }
@@ -44,7 +48,7 @@ public class BlogController {
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        model.addAttribute("title", res.get(0).getTitle() + " | HD Blog");
+        model.addAttribute("title", res.get(0).getTitle() + " | School 59");
         return "blog-details";
     }
 
@@ -57,7 +61,7 @@ public class BlogController {
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        model.addAttribute("title", res.get(0).getTitle() + " | HD Blog");
+        model.addAttribute("title", res.get(0).getTitle() + " | School 59");
         return "blog-edit";
     }
 
@@ -66,7 +70,6 @@ public class BlogController {
         Post post = postRepository.findById(id).orElseThrow(Exception::new);
         post.setTitle(title);
         post.setAnons(anons);
-        post.setType(type);
         postRepository.save(post);
         return "redirect:/";
     }
