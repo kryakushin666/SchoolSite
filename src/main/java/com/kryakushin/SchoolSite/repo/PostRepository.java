@@ -9,5 +9,4 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     @Query(value = "SELECT * FROM Post u WHERE u.id = ?1", nativeQuery = true)
     Post findPostById(Long id);
-
 }
